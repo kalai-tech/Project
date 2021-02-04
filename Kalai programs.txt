@@ -1,0 +1,417 @@
+Selenium start
+
+System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("http://leaftaps.com/opentaps");
+		driver.manage().window().maximize();
+	driver.findElementById("username").sendKeys("demosalesmanager");
+	driver.findElementById("password").sendKeys("crmsfa");
+	driver.findElementByClassName("decorativeSubmit").click();
+	driver.findElementByLinkText("CRM/SFA").click();
+	driver.findElementByLinkText("Leads").click();
+	driver.findElementByLinkText("Find Leads").click();
+	
+	driver.findElementByXPath("//span[text()='Phone']").click();
+	driver.findElementByName("phoneNumber").sendKeys("8");
+	Thread.sleep(5000);
+	driver.findElementByXPath("//button[text()='Find Leads']").click();
+	driver.findElementByXPath("(//div[@class='x-grid3-cell-inner x-grid3-col-partyId']/a[text()='10203'])").click();
+	
+	
+	}	
+
+	}
+
+
+
+
+
+System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("http://leafground.com");
+		driver.manage().window().maximize();
+		//to create dropdown
+		//WebElement eledropdown = driver.findElementByName("dropdown2");
+		
+		//Select dropdown = new Select(eledropdown);
+		
+		//dropdown. selectByVisibleText("Appium");
+	
+
+		WebElement element = driver.findElement(By.xpath("//img[@alt='Buttons']"));
+		Actions act = new Actions(driver);
+		act.doubleClick(element).perform();
+		
+		driver.findElementById("home").click();
+		
+	}
+
+
+
+
+
+
+System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("http://leafground.com/pages/drop.html");
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	
+      WebElement element=driver.findElementById("draggable");
+     
+      WebElement elment=driver.findElementById("droppable");
+      Actions builder=new Actions(driver);
+      //builder.dragAndDropBy(element, 140,40 ).perform();
+      builder.dragAndDrop(element,elment).perform();
+      
+	}
+
+}
+
+
+
+
+
+
+
+System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("http://leafground.com/pages/mouseOver.html#");
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		WebElement element =driver.findElementByLinkText("TestLeaf Courses");
+		Actions builder=new Actions(driver);
+		builder.moveToElement(element).perform();
+		driver.findElementByLinkText("Selenium").click();
+		
+
+	}
+
+}
+
+
+
+
+
+
+System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+		
+		driver.get("http://leafground.com");
+		driver.manage().window().maximize();
+		driver.findElementByXPath("//h5[text()='Radio Button']").click();
+		driver.findElementById("yes").click();
+
+	}
+
+}
+
+
+
+
+
+
+
+System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+		
+		driver.get("http://leafground.com/pages/selectable.html");
+		driver.manage().window().maximize();
+		
+		WebElement select1 = driver.findElement(By.xpath("//li[text()='Item 1']"));
+        WebElement select2 = driver.findElement(By.xpath("//li[text()='Item 2']"));
+
+        Actions action = new Actions(driver);
+        action.keyDown(Keys.CONTROL).click(select1).click(select2).build().perform();
+		
+
+	}
+
+}
+
+
+
+
+
+System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("http://leafground.com/pages/checkbox.html");
+		driver.manage().window().maximize();
+		WebElement select1 = driver.findElement(By.xpath("//input[@type='checkbox'][1]"));
+	   Actions action = new Actions(driver);
+	   action.click(select1).build().perform();
+		
+		//driver.findElementByLinkText("VB").click()
+        
+		
+
+	}
+
+}
+
+
+
+
+
+
+System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("http://leafground.com/pages/Window.html");
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+		driver.findElementByXPath("//button[text()='Open Multiple Windows']").click();
+		
+		Set<String> kk=driver.getWindowHandles();
+		List<String> k=new ArrayList<String>(kk);
+		driver.switchTo().window(k.get(1));
+		String s=driver.getCurrentUrl();
+	//	driver.close();
+		driver.switchTo().window(k.get(0));
+		//File src=driver.getScreenshotAs(("kalai.png");
+		System.out.println(s);
+		
+		
+
+}
+}
+
+
+
+
+
+	
+
+		System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("https://www.w3schools.com/jS/tryit.asp?filename=tryjs_prompt");
+		
+		driver.switchTo().frame("iframeResult");
+		driver.findElementByXPath("//button[text()='Try it']").click();
+		
+		driver.switchTo().alert().sendKeys("kalai");
+	
+		driver.switchTo().alert().accept();
+		driver.findElementByXPath("//p[@id='demo']").getText();
+		//driver.switchTo().alert().dismiss();
+		WebElement ele=driver.findElementByXPath("//p[@id='demo']");
+		
+		System.out.println(ele.getText());
+		
+		
+		
+
+	}
+
+}
+
+
+
+
+
+System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("http://leafground.com/pages/Button.html");
+		By bySearchButton = By.id("color");
+		WebElement googleSearchBtn = driver.findElement(bySearchButton); 
+		System.out.println("Color of a button before mouse hover: "	+ googleSearchBtn.getCssValue("color"));
+		Actions action = new Actions(driver);
+		action.moveToElement(googleSearchBtn).perform();
+		System.out.println("Color of a button after mouse hover : "	+ googleSearchBtn.getCssValue("color"));
+
+
+
+}
+}
+
+
+
+
+
+System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("http://leafground.com/pages/drop.html");
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	
+      WebElement element=driver.findElementById("draggable");
+     
+      WebElement elment=driver.findElementById("droppable");
+      Actions builder=new Actions(driver);
+      //builder.dragAndDropBy(element, 140,40 ).perform();
+      builder.dragAndDrop(element,elment).perform();
+      
+	}
+
+}
+
+
+
+
+
+
+System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("https://etrain.info/in?TRAIN_BETWEEN=MAS-BNCE");
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        WebElement table=driver.findElementByXPath("//table[@class='myTable data nocps nolrborder']");
+        List<WebElement>rows=table.findElements(By.tagName("tr"));
+		int size=rows.size();
+		System.out.println("row size"+size);
+		for(int i =0;i<size;i++){
+			
+		
+		WebElement first=rows.get(i);
+		List<WebElement> firstcol= first.findElements(By.tagName("td"));
+		//System.out.println(firstcol.size());
+		System.out.println(firstcol.get(0).getText());
+		
+		
+		
+		
+	   //  List<String> copylist=new ArrayList<String>();
+		// for (WebElement copylist : firstcol) {
+		//	 copylist.add(copylist.getText();
+			}
+		 List<WebElement>rowe=table.findElements(By.tagName("tr"));
+		 
+		 for(int i =0;i<size;i++){
+				System.out.println("output of copied values");
+				
+				WebElement first=rowe.get(i);
+				List<WebElement> second= first.findElements(By.tagName("td"));
+				//System.out.println(firstcol.size());
+				System.out.println(second.get(0).getText());
+		 
+		} 
+}
+}
+
+
+
+
+
+
+
+
+
+
+		System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("http://leaftaps.com/opentaps");
+		driver.manage().window().maximize();
+		driver.findElementById("username").sendKeys("demosalesmanager");
+		driver.findElementById("password").sendKeys("crmsfa");
+		driver.findElementByClassName("decorativeSubmit").click();
+		driver.findElementByLinkText("CRM/SFA").click();
+		driver.findElementByLinkText("Contacts").click();
+		driver.findElementByLinkText("Merge Contacts").click();
+		driver.findElementByXPath("//img[@alt='Lookup'][1]").click();
+		Set<String> kalai=driver.getWindowHandles();
+		List<String> ka=new ArrayList<String>(kalai);
+		driver.switchTo().window(ka.get(1));
+		System.out.println(driver.getCurrentUrl());
+	
+
+		 driver.findElementByXPath("(//a[@class='linktext'])[1]").click();
+
+		 Thread.sleep(3000);
+		 driver.switchTo().window(ka.get(0));
+		 driver.findElementByXPath("(//img[@alt='Lookup'])[2]").click();
+		 Set<String> windowSet2 = driver.getWindowHandles();
+		 List<String> windlist2 = new ArrayList<String>(windowSet2);
+		 driver.switchTo().window(windlist2.get(1));
+		 System.out.println(driver.getCurrentUrl());
+		 driver.findElementByXPath("(//a[@class='linktext'])[6]").click();
+		 Thread.sleep(3000);
+		 driver.switchTo().window(windlist2.get(0));
+		 driver.findElementByLinkText("Merge").click();
+		 //driver.findElementByXPath("//a[@class='buttonDangerous']").click();
+			driver.findElementByLinkText("Merge").click();
+		  Thread.sleep(3000);
+		  Alert alert = driver.switchTo().alert();
+		  String altext = alert.getText();
+		  System.out.println(altext);
+		  Thread.sleep(3000);
+		  alert.accept();
+
+		
+		
+	
+	//	driver.findElementByXPath("///input[@name='ComboBox_partyIdTo']']").sendKeys("ffd");
+	//driver.findElementByXPath("//a[@class='buttonDangerous']").click();
+
+
+
+
+
+
+
+
+
+
+public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.get("http://acme-test.uipath.com/account/login");
+		driver.manage().window().maximize();
+		driver.findElementById("email").sendKeys("kumar.testleaf@gmail.com",Keys.TAB);
+		driver.findElementById("password").sendKeys("leaf@12");
+		driver.findElementById("buttonLogin").click();
+		
+		WebElement element =driver.findElementByXPath("(//button[@type='button']/i)[5]");
+		Actions builder=new Actions(driver);
+		builder.moveToElement(element).perform();
+		driver.findElementByLinkText("Search for Vendor").click();
+		
+	driver.findElementById("vendorName").sendKeys("Blue Lagoon");
+	driver.findElementById("buttonSearch").click();
+	
+	
+String ele =driver.findElementByXPath("//td[text()='Blue Lagoon']/following::td[1]").getText();
+System.out.println(ele);
+		
+		driver.findElementByLinkText("Log Out").click();
+
+	}
+	}
+
+
+System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.get("http://zoomcar.com/chennai");
+		driver.manage().window().maximize();
+		driver.findElementByLinkText("Start your wonderful journey").click();
+		driver.findElementByXPath("//div[@class='items'][1]").click();
+		driver.findElementByClassName("proceed").click();
+		driver.findElementByXPath("//div[@class='day low-price']").click();
+		driver.findElementByClassName("proceed").click();
+		driver.findElementByXPath("//div[@class='day low-price']").click();
+		driver.findElementByClassName("proceed").click();
+		//driver.findElementByXPath("(//div[text()=' Price: High to Low '])").click();
+		List<WebElement> allPices = driver.findElementsByXPath("//div[@class='price']");
+		 
+		 for (WebElement eachPrice : allPices) {
+			 
+			 String priceString = eachPrice.getText();
+			 System.out.println(priceString);
+			 String numAlone = priceString.replaceAll("\\D", "");
+			int a= Integer.parseInt(numAlone);
+			 System.out.println(a);
+		
+		 List<Integer > k=new ArrayList<Integer>();
+		//need to add the values in list
+		 
+		
+		
+	
+		 
+		 		
+		
+
+
+	}
